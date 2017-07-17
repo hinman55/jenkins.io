@@ -36,7 +36,7 @@ build, the goal is that an equivalent artifact should be produced unless there
 was a change to the app in source control. As such, we pin all of our
 dependencies to specific versions. But we also don't want to languish on old
 versions of dependencies, whether internal or external. So we also have an
-`auto-maintain` script that bumps all of these versions and commit the result.
+`auto-maintain` script that bumps all of these versions and commits the result.
 
 I'll give an example. We use docker to build and deploy our apps, and each app
 depends on a base image that we host in a docker registry. So a `Dockerfile` in
@@ -133,7 +133,7 @@ back to the app, which in turn triggers a build of that app, and--if all is
 well--a production deployment.
 
 The only missing link then for avoiding one-year build droughts is to get around
-the problem where `auto-commit` isn't actually updating anything in a certain app.
+the problem where `auto-maintain` isn't actually updating anything in a certain app.
 If no dependencies are changing, or if the technology in question is not
 receiving much attention, `auto-maintain` might not do anything for an
 extended period of time, even if the script is run on a schedule using
